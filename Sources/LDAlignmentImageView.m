@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) UIImageView *innerImageView;
 //@property (nonatomic) UIViewContentMode innerContentMode;
+@property (weak, nonatomic) UIView *innerView;
 
 @end
 
@@ -26,6 +27,11 @@
         [super setContentMode:UIViewContentModeScaleToFill];
         self.clipsToBounds = YES;
         
+        UIView *tmpView = [[UIView alloc] init];
+        tmpView.backgroundColor = [UIColor whiteColor];
+        [self addSubview:tmpView];
+        _innerView = tmpView;
+
         UIImageView *tmp = [[UIImageView alloc] init];
         tmp.contentMode = UIViewContentModeScaleToFill;
         tmp.backgroundColor = [UIColor clearColor];
@@ -33,7 +39,7 @@
         _innerImageView = tmp;
         
         self.contentMode = [super contentMode];
-        self.image = [super image];
+        // self.image = [super image];
     }
     
     return self;
@@ -119,7 +125,7 @@
                                            imageViewYOrigin,
                                            imageViewWidth,
                                            imageViewHeight);
-
+    [self.innerView setFrame: self.frame];
 }
 
 
