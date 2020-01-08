@@ -1,25 +1,28 @@
 # LDAlignmentImageView
 UIImageView subclass with simple methods to align and scale image inside UIImageView.
 
-##Demo:
+## Demo:
 ![](https://github.com/LucasssD/LDAlignmentImageView/blob/master/demo.gif)
 
-##Available properties:
+## Available properties:
 
--imageVerticalAlignment (Top, Center, Bottom)
+- `correctImage` (`UIImage`; use this instead of the standard `UIImageView`’s `image` property)
 
--imageHorizontalAlignment (Left, Center, Right)
+- `imageVerticalAlignment` (Top, Center, Bottom)
+
+- `imageHorizontalAlignment` (Left, Center, Right)
   
--imageContentMode (Original size, Scale to Fill, Scale Aspect Fill, Scale Aspect Fit)
+- `imageContentMode` (Original size, Scale to Fill, Scale Aspect Fill, Scale Aspect Fit)
 
+__Note:__ the example has not been updated to include the image duplication fix for iOS 13.
 
-##Animatable
+## Animatable
 All changes can be easly animated by putting them in animation block, for example
 
-    [UIView animateWithDuration:0.4  animations:^{
-        ldImageAlignmentView.imageVerticalAlignment = LDImageVerticalAlignmentCenter;
-        ldImageAlignmentView.imageHorizontalAlignment= LDImageHorizontalAlignmentLeft;
-        ldImageAlignmentView.imageContentMode = LDImageContentModeScaleToFill;
-    }];
-    
-
+```objective-c
+[UIView animateWithDuration:0.4  animations:^{
+    ldImageAlignmentView.imageVerticalAlignment = LDImageVerticalAlignmentCenter;
+    ldImageAlignmentView.imageHorizontalAlignment= LDImageHorizontalAlignmentLeft;
+    ldImageAlignmentView.imageContentMode = LDImageContentModeScaleToFill;
+}];
+```
